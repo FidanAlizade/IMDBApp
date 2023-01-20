@@ -34,7 +34,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         holder.rowLayoutBinding.originalLanguage.setText(getPopularMoviesModelArrayList.get(position).getOriginal_language());
         holder.rowLayoutBinding.originalTitle.setText(getPopularMoviesModelArrayList.get(position).getOriginal_title());
 
-        Glide.with(holder.itemView.getContext()).load(getPopularMoviesModelArrayList.get(position).getPoster_path()).placeholder(R.drawable.load)
+        Glide.with(holder.itemView.getContext()).load(getPopularMoviesModelArrayList.get(position).getPoster_path()).fitCenter().placeholder(R.drawable.load)
                 .into(holder.rowLayoutBinding.movieImg);
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {

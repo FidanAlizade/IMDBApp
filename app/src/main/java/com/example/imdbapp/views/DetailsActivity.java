@@ -41,7 +41,7 @@ TextView originalTitle1, title1, overview1, popularity1, voteCount1, voteAverage
                 String vote_average  = intent.getExtras().getString("vote_average");
                 String release_date  = intent.getExtras().getString("release_date");
 
-                Glide.with(this).load(imageView).placeholder(R.drawable.load).into(image);
+                Glide.with(this).load(imageView).placeholder(R.drawable.load).centerCrop().into(image);
 
                 title1.setText(textTitle);
                 originalTitle1.setText(originalTitle);

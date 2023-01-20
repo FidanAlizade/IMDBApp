@@ -9,48 +9,45 @@
         android:id="@+id/root_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:cardBackgroundColor="#1AFFFFFF"
-        app:cardCornerRadius="8dp"
+        app:cardBackgroundColor="#008B5CDD"
+        app:cardCornerRadius="0dp"
         app:cardUseCompatPadding="true">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="10dp">
+            android:paddingRight="10dp"
+            android:paddingLeft="10dp">
 
 
             <ImageView
                 android:id="@+id/movieImg"
-                android:layout_width="257dp"
+                android:layout_width="314dp"
                 android:layout_height="260dp"
                 android:layout_gravity="center"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="8dp"
                 android:src="@drawable/ic_launcher_background" />
 
             <TextView
                 android:id="@+id/original_title"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:layout_marginBottom="10dp"
-                android:layout_marginRight="10dp"
-                android:layout_marginLeft="10dp"
+                android:layout_height="100dp"
                 android:text="original_title"
-                android:textColor="@color/black"
-                android:textSize="16sp"
+                android:gravity="center_vertical|center_horizontal"
+                android:textSize="18sp"
                 android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/original_language"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp"
-                android:gravity="left"
                 android:layout_marginLeft="110dp"
+                android:gravity="left"
+                android:textStyle="italic"
+                android:paddingBottom="5dp"
                 android:text="original_language"
-                android:textColor="@color/black"
-                android:textSize="16sp"/>
+                android:textSize="16sp" />
 
         </LinearLayout>
     </androidx.cardview.widget.CardView>

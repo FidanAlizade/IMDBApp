@@ -8,66 +8,60 @@
     tools:layout_editor_absoluteY="32dp">
 
     <ScrollView
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="2dp"
+        android:layout_marginBottom="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.175">
+        app:layout_constraintVertical_bias="0.0">
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginBottom="15dp"
+            android:paddingBottom="15dp">
 
             <TextView
                 android:id="@+id/release_date"
                 android:layout_width="0dp"
                 android:layout_height="27dp"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="4dp"
-                android:layout_marginEnd="8dp"
+                android:layout_marginTop="8dp"
                 android:paddingLeft="10dp"
                 android:paddingRight="10dp"
                 android:text="release_date"
-                android:textColor="@color/black"
                 android:textSize="20sp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/vote_average" />
 
             <TextView
                 android:id="@+id/vote_count"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
-                android:layout_marginEnd="8dp"
                 android:paddingLeft="10dp"
                 android:paddingRight="10dp"
                 android:text="vote_count"
-                android:textColor="@color/black"
                 android:textSize="20sp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/popularity" />
 
             <TextView
                 android:id="@+id/vote_average"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
-                android:layout_marginEnd="8dp"
                 android:paddingLeft="10dp"
                 android:paddingRight="10dp"
                 android:text="vote_average"
-                android:textColor="@color/black"
                 android:textSize="20sp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/vote_count" />
 
             <TextView
@@ -79,7 +73,6 @@
                 android:paddingLeft="10dp"
                 android:paddingRight="10dp"
                 android:text="orginal Title"
-                android:textColor="@color/black"
                 android:textSize="26sp"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -88,9 +81,9 @@
 
             <ImageView
                 android:id="@+id/imageViewOverview"
-                android:layout_width="411dp"
-                android:layout_height="199dp"
-                android:layout_marginTop="16dp"
+                android:layout_width="424dp"
+                android:layout_height="586dp"
+                android:layout_marginTop="8dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/titleText"
@@ -105,7 +98,6 @@
                 android:paddingLeft="10dp"
                 android:paddingRight="10dp"
                 android:text="overview"
-                android:textColor="@color/black"
                 android:textSize="20sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -115,31 +107,80 @@
                 android:id="@+id/popularity"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
-                android:layout_marginEnd="8dp"
                 android:paddingLeft="10dp"
                 android:paddingRight="10dp"
                 android:text="popularity"
-                android:textColor="@color/black"
                 android:textSize="20sp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/overview" />
 
             <TextView
                 android:id="@+id/titleText"
                 android:layout_width="wrap_content"
-                android:layout_height="30dp"
-                android:layout_marginTop="21dp"
-                android:padding="4dp"
-                android:paddingLeft="10dp"
-                android:paddingRight="10dp"
+                android:layout_height="wrap_content"
                 android:text="Title"
                 android:textSize="16sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/popularityText"
+                android:layout_width="141dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:text="Popularity"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toStartOf="@+id/popularity"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/overview" />
+
+            <TextView
+                android:id="@+id/textVoteCount"
+                android:layout_width="141dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:text="Vote count"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toStartOf="@+id/vote_count"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/popularityText" />
+
+            <TextView
+                android:id="@+id/textVoteAverage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:text="Vote Average"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toStartOf="@+id/vote_average"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textVoteCount" />
+
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:text="Release date"
+                android:textSize="20sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textVoteAverage" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 
