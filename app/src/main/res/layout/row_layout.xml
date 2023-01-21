@@ -44,7 +44,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="110dp"
-                android:gravity="left"
+                android:gravity="center"
                 android:textStyle="bold"
                 android:paddingBottom="5dp"
                 android:textColor="#C400E5"
