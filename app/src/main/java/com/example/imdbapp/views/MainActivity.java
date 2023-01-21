@@ -1,8 +1,13 @@
 package com.example.imdbapp.views;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
+
+import android.content.Context;
 import android.os.Bundle;
+import android.util.AttributeSet;
 import android.view.View;
 import com.example.imdbapp.adapter.RecyclerViewAdapter;
 import com.example.imdbapp.databinding.ActivityMainBinding;
@@ -43,13 +48,13 @@ public class MainActivity extends AppCompatActivity {
                     .build();
 
             loadDataFromAPI();
+
         }
 
         private void loadDataFromAPI(){
             movieAPI = retrofit.create(MovieAPI.class);
 
             Call<ResponseMovies> call = movieAPI.getData();
-
             call.enqueue(new Callback<ResponseMovies>() {
                 @Override
                 public void onResponse(Call<ResponseMovies> call, Response<ResponseMovies> response) {
@@ -62,15 +67,16 @@ public class MainActivity extends AppCompatActivity {
                         binding.recyclerView.setAdapter(recyclerViewAdapter);
 
                     }
+                    recyclerViewAdapter.notifyDataSetChanged();
                 }
 
                 @Override
                 public void onFailure(Call<ResponseMovies> call, Throwable t) {
 
                 }
+
             });
 
         }
-
 
 }

@@ -72,7 +72,7 @@ public class GetPopularMoviesModel{
         this.video = video;
     }
 //sekili gosteren BASE_URL
-    String baseImageUrl = "https://image.tmdb.org/t/p/w500";
+//    String baseImageUrl = "https://image.tmdb.org/t/p/w500";
 
     public String getOriginal_language() {
         return original_language;
