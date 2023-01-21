@@ -31,8 +31,9 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
     @Override
     public void onBindViewHolder(@NonNull RowHolder holder, int position) {
-        holder.rowLayoutBinding.originalLanguage.setText(getPopularMoviesModelArrayList.get(position).getOriginal_language());
+//        holder.rowLayoutBinding.originalLanguage.setText(getPopularMoviesModelArrayList.get(position).getOriginal_language());
         holder.rowLayoutBinding.originalTitle.setText(getPopularMoviesModelArrayList.get(position).getOriginal_title());
+        holder.rowLayoutBinding.voteAverageText.setText(String.valueOf(getPopularMoviesModelArrayList.get(position).getVote_average()));
 
         Glide.with(holder.itemView.getContext()).load(getPopularMoviesModelArrayList.get(position).getPoster_path()).fitCenter().placeholder(R.drawable.load)
                 .into(holder.rowLayoutBinding.movieImg);
