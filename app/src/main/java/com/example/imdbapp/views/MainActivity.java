@@ -17,6 +17,7 @@ import com.example.imdbapp.service.MovieAPI;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -61,6 +62,7 @@ public class MainActivity extends AppCompatActivity {
                     if(response.isSuccessful()){
                         List<GetPopularMoviesModel> responseList = response.body().getResults();
                         //response  dan elde etdiyimiz listi bizim arrayliste qoyduq
+                        Collections.sort(responseList, GetPopularMoviesModel.BY_NAME_ALPHABETICAL);
                         popularMoviesArraylList = new ArrayList<>(responseList);
                         binding.recyclerView.setLayoutManager(new GridLayoutManager(getApplicationContext(),2));
                         recyclerViewAdapter = new RecyclerViewAdapter(popularMoviesArraylList);

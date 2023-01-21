@@ -9,6 +9,7 @@ import androidx.versionedparcelable.VersionedParcelize;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
 @VersionedParcelize
@@ -73,6 +74,19 @@ public class GetPopularMoviesModel{
     }
 //sekili gosteren BASE_URL
 //    String baseImageUrl = "https://image.tmdb.org/t/p/w500";
+
+    public GetPopularMoviesModel(){
+
+    }
+
+    public static final Comparator<GetPopularMoviesModel> BY_NAME_ALPHABETICAL = new Comparator<GetPopularMoviesModel>() {
+        @Override
+        public int compare(GetPopularMoviesModel getPopularMoviesModel, GetPopularMoviesModel t1) {
+
+            return getPopularMoviesModel.original_title.compareTo(t1.original_title);
+        }
+    };
+
 
     public String getOriginal_language() {
         return original_language;
