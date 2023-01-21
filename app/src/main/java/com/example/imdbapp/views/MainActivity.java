@@ -3,17 +3,23 @@ package com.example.imdbapp.views;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
 
 import android.content.Context;
 import android.os.Bundle;
 import android.util.AttributeSet;
+import android.view.MenuItem;
 import android.view.View;
+import android.view.WindowManager;
+
+import com.example.imdbapp.R;
 import com.example.imdbapp.adapter.RecyclerViewAdapter;
 import com.example.imdbapp.databinding.ActivityMainBinding;
 import com.example.imdbapp.models.GetPopularMoviesModel;
 import com.example.imdbapp.models.ResponseMovies;
 import com.example.imdbapp.service.MovieAPI;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import java.util.ArrayList;
@@ -26,12 +32,8 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class MainActivity extends AppCompatActivity {
+
     private ActivityMainBinding binding;
-    ArrayList<GetPopularMoviesModel> popularMoviesArraylList;
-    final String BASE_URL= "https://api.themoviedb.org/3/" ;
-    MovieAPI movieAPI;
-    Retrofit retrofit;
-    RecyclerViewAdapter recyclerViewAdapter;
 
         @Override
         public void onCreate(Bundle savedInstanceState) {
@@ -40,45 +42,26 @@ public class MainActivity extends AppCompatActivity {
             View view = binding.getRoot();
             setContentView(view);
 
-
-
-            Gson gson = new GsonBuilder().setLenient().create();
-            retrofit = new Retrofit.Builder()
-                    .baseUrl(BASE_URL)
-                    .addConverterFactory(GsonConverterFactory.create(gson))
-                    .build();
-
-            loadDataFromAPI();
-
-        }
-
-        private void loadDataFromAPI(){
-            movieAPI = retrofit.create(MovieAPI.class);
-
-            Call<ResponseMovies> call = movieAPI.getData();
-            call.enqueue(new Callback<ResponseMovies>() {
-                @Override
-                public void onResponse(Call<ResponseMovies> call, Response<ResponseMovies> response) {
-                    if(response.isSuccessful()){
-                        List<GetPopularMoviesModel> responseList = response.body().getResults();
-                        //response  dan elde etdiyimiz listi bizim arrayliste qoyduq
-                        Collections.sort(responseList, GetPopularMoviesModel.BY_NAME_ALPHABETICAL);
-                        popularMoviesArraylList = new ArrayList<>(responseList);
-                        binding.recyclerView.setLayoutManager(new GridLayoutManager(getApplicationContext(),2));
-                        recyclerViewAdapter = new RecyclerViewAdapter(popularMoviesArraylList);
-                        binding.recyclerView.setAdapter(recyclerViewAdapter);
-
-                    }
-                    recyclerViewAdapter.notifyDataSetChanged();
-                }
-
-                @Override
-                public void onFailure(Call<ResponseMovies> call, Throwable t) {
-
-                }
-
+            getSupportFragmentManager().beginTransaction().replace(R.id.body_layout,new HomeFragment()).commit();
+            binding.bottomNavigationBar.setSelectedItemId(R.id.nav_home);
+            binding.bottomNavigationBar.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+               @Override
+               public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                   Fragment fragment =  null;
+                   switch (item.getItemId()){
+                       case R.id.nav_home:
+                           fragment = new HomeFragment();
+                           break;
+                       case R.id.nav_fav:
+                           fragment = new FavoritesFragment();
+                           break;
+                       case R.id.nav_searches:
+                           fragment = new SearchesFragment();
+                           break;
+                   }
+                   getSupportFragmentManager().beginTransaction().replace(R.id.body_layout,fragment).commit();
+                   return true;
+               }
             });
-
         }
-
 }
